@@ -1138,32 +1138,27 @@ input[type="file"] { display: none; }
               </div>
               <div class="field-row">
                 <label>Zona</label>
-                <select id="vZone">
-                  <option value="">Seleccionar...</option>
-                  <optgroup label="Azua">
-                    <option>Monte Bonito</option>
-                    <option>Viajama</option>
-                    <option>Arroyo Cano</option>
-                    <option>Los Fríos</option>
-                    <option>Majagual</option>
-                  </optgroup>
-                  <optgroup label="Rancho Arriba / Ocoa">
-                    <option>La Colonia</option>
-                    <option>Mahoma</option>
-                    <option>El Higuito</option>
-                  </optgroup>
-                  <optgroup label="Cibao">
-                    <option>Juncalito</option>
-                    <option>Jamamuncito</option>
-                    <option>La Peonia</option>
-                    <option>El Aguacate</option>
-                    <option>Santiago Rodríguez</option>
-                  </optgroup>
-                  <optgroup label="Barahona / Polo">
-                    <option>Monteada Nueva</option>
-                    <option>La Lanza</option>
-                  </optgroup>
-                </select>
+                <input type="text" id="vZone" list="zonesList" placeholder="Selecciona o escribe..." autocomplete="off">
+                <datalist id="zonesList">
+                  <option value="Monte Bonito">Azua</option>
+                  <option value="Viajama">Azua</option>
+                  <option value="Arroyo Cano">Azua</option>
+                  <option value="Los Fríos">Azua</option>
+                  <option value="Majagual">Azua</option>
+                  <option value="La Colonia">Rancho Arriba / Ocoa</option>
+                  <option value="Mahoma">Rancho Arriba / Ocoa</option>
+                  <option value="El Higuito">Rancho Arriba / Ocoa</option>
+                  <option value="Juncalito">Cibao</option>
+                  <option value="Jamamuncito">Cibao</option>
+                  <option value="La Peonia">Cibao</option>
+                  <option value="El Aguacate">Cibao</option>
+                  <option value="Santiago Rodríguez">Cibao</option>
+                  <option value="Chené">Cibao</option>
+                  <option value="Cresteliando">Cibao</option>
+                  <option value="Ciénaga">Cibao</option>
+                  <option value="Monteada Nueva">Barahona / Polo</option>
+                  <option value="La Lanza">Barahona / Polo</option>
+                </datalist>
               </div>
             </div>
             <div class="field-row">
@@ -1307,7 +1302,7 @@ input[type="file"] { display: none; }
               Capturar
             </button>
           </div>
-          <input type="file" id="sFileInput" accept="image/*" capture="environment">
+          <input type="file" id="sFileInput" accept="image/*">
         </div>
 
         <button class="btn btn-primary hidden" id="sBtnAnalyze" style="margin-top:16px;">
@@ -1390,7 +1385,7 @@ input[type="file"] { display: none; }
             <button id="vBtnUpload" type="button">Subir</button>
             <button id="vBtnShoot" type="button" disabled>Capturar</button>
           </div>
-          <input type="file" id="vFileInput" accept="image/*" capture="environment">
+          <input type="file" id="vFileInput" accept="image/*">
         </div>
 
         <button class="btn btn-primary hidden" id="vBtnAnalyze" style="margin-top:16px;">
@@ -1548,7 +1543,7 @@ const COFFEE_CONDITIONS = {
     sintomas: ["Clorosis uniforme en hojas viejas","Amarillamiento generalizado","Reducción del crecimiento","Frutos amarillentos","Defoliación en casos severos"],
     ubicacion: "Hojas viejas (ramas inferiores)",
     descripcion: "Deficiencia más común y limitante. El N es móvil, por eso los síntomas aparecen primero en hojas viejas.",
-    tratamiento: { preventivo:"Plan de fertilización con análisis de suelo", curativo:"Urea (46% N) o sulfato de amonio (21% N)", dosis:"Producción: 200-300 kg N/ha/año dividido", epoca:"Ventana 1: abril-mayo. Ventana 2: julio-octubre" },
+    tratamiento: { preventivo:"Plan de fertilización con fórmula completa zonal (Induban) basada en análisis de suelo del lote", curativo:"Levante (plantas nuevas): urea (46% N) o sulfato de amonio (21% N). En producción: NO aplicar fuentes simples — validar y ajustar la dosis de la fórmula completa zonal recomendada para la zona. Criterio del técnico (Carlos Fonseca / agrónomo de zona)", dosis:"Levante: 30 g N/planta/año fraccionado. Producción: ajustar fórmula zonal según análisis del lote (criterio técnico)", epoca:"Ventana 1: abril-mayo (cuajado). Ventana 2: julio-octubre (llenado de fruto)" },
     prevencion: ["Análisis de suelo y foliar regulares","Fertilización fraccionada","Materia orgánica","Sombra de leguminosas"],
     contextoLocal: "Fersan, Abodom, Ferquido como suministradores. Fórmulas Induban con N basal."
   },
@@ -1558,7 +1553,7 @@ const COFFEE_CONDITIONS = {
     sintomas: ["Necrosis y muerte de los bordes de hojas viejas","Quemazón marginal característica","Manchas necróticas que avanzan desde el borde","Defoliación severa en zona productiva"],
     ubicacion: "Hojas viejas, especialmente en ramas productivas",
     descripcion: "Una de las deficiencias más limitantes para producción. K esencial para llenado de fruto y resistencia a estrés.",
-    tratamiento: { preventivo:"KCl (60% K2O) o sulfato de potasio (50% K2O)", curativo:"Aplicación al suelo dirigida", dosis:"Producción: 250-350 kg K2O/ha/año", epoca:"Ventanas: abril-mayo y julio-octubre" },
+    tratamiento: { preventivo:"Fórmula completa zonal (Induban) con K2O suficiente — clave en zonas de Azua donde TODOS los análisis muestran K bajo o muy bajo", curativo:"Levante (plantas nuevas): aplicación dirigida con KCl (60% K2O) o sulfato de potasio (50% K2O). En producción: validar y ajustar la dosis de la fórmula zonal — el K en producción se maneja en fórmula completa con criterio del técnico, no por fuentes simples", dosis:"Levante: 10 g K2O/planta/año. Producción: ajustar fórmula zonal según análisis del lote (criterio técnico)", epoca:"Ventanas: abril-mayo y julio-octubre. Crítico en llenado del fruto." },
     prevencion: ["Reciclaje de pulpa de café (alta en K)","Análisis de suelo para K intercambiable","Fórmulas con relación K2O:N apropiada"],
     contextoLocal: "K bajo o muy bajo en TODOS los análisis AGQ Perú de Azua. Justifica K alto en fórmulas zonales."
   },
@@ -1568,7 +1563,7 @@ const COFFEE_CONDITIONS = {
     sintomas: ["Clorosis intervenal característica","Nervaduras verdes con tejido amarillento","Patrón de espina de pescado en hojas viejas","Defoliación durante cosecha"],
     ubicacion: "Hojas viejas (ramas productivas)",
     descripcion: "Frecuente cuando hay alto K en relación a Mg. La cosecha exporta mucho Mg con el grano.",
-    tratamiento: { preventivo:"Kieserita (25% MgO) o KMAG (18% MgO)", curativo:"Foliar de sulfato de magnesio", dosis:"Producción: 60 kg MgO/ha/año", epoca:"Antes/durante cosecha" },
+    tratamiento: { preventivo:"Fórmula zonal con Kieserita (25% MgO) o KMAG (18% MgO + 22% K2O) según la relación Ca:Mg:K del análisis", curativo:"Levante (plantas nuevas): foliar de sulfato de magnesio. En producción: validar y ajustar la fórmula zonal — el Mg en producción se incorpora a la fórmula completa con criterio del técnico", dosis:"Levante: 5 g MgO/planta. Producción: ajustar fórmula zonal según análisis (criterio técnico)", epoca:"Antes/durante cosecha cuando la exportación de Mg con el grano es máxima" },
     prevencion: ["Encalado con cal dolomítica","Balance Ca:Mg:K en suelo (6:2:1)","Análisis periódicos"],
     contextoLocal: "Caso Remigio Aybar (Azua): Mg muy alto, desbalance contrario. Importante análisis individual."
   },
@@ -1578,7 +1573,7 @@ const COFFEE_CONDITIONS = {
     sintomas: ["Manchas pardas en brotes y hojas nuevas","Muerte de yemas terminales","Hojas verde aceituna en V invertida","Brotes deformes y agrietados","Manchas corchosas en frutos"],
     ubicacion: "Hojas nuevas, brotes terminales, frutos",
     descripcion: "Crítico para floración, cuajado y formación del grano. Deficiencia universal en muchas zonas cafetaleras de RD.",
-    tratamiento: { preventivo:"Borato (15% B) en fórmula de fertilización", curativo:"Foliar de bórax o Solubor", dosis:"Suelo: 2-3 kg/ha B. Foliar: 0.2%", epoca:"Antes de floración y en formación de fruto" },
+    tratamiento: { preventivo:"Borato (15% B) incluido en la fórmula completa zonal Induban — deficiencia universal en 13 muestras de Azua justifica B en TODAS las fórmulas", curativo:"Foliar correctivo de bórax o Solubor — válido en levante y en producción como complemento de la fórmula zonal, no como sustituto", dosis:"Foliar: 0.2% (200 g/100 L agua). Suelo: 2-3 kg/ha B según fórmula zonal y criterio técnico", epoca:"Antes de floración y en formación de fruto" },
     prevencion: ["Inclusión de B en fórmulas zonales","Análisis foliar periódicos","pH del suelo 5.5-6.5"],
     contextoLocal: "DEFICIENCIA UNIVERSAL en 13 muestras AGQ Perú de Azua. B incluido en TODAS las fórmulas Induban por zona."
   },
@@ -1598,7 +1593,7 @@ const COFFEE_CONDITIONS = {
     sintomas: ["Hojas pequeñas (rosetas) en brotes terminales","Entrenudos cortos","Hojas lanceoladas, angostas","Clorosis intervenal en hojas jóvenes"],
     ubicacion: "Hojas nuevas, brotes",
     descripcion: "Frecuente en suelos calcáreos o muy fertilizados con P. Crítico para crecimiento.",
-    tratamiento: { preventivo:"Sulfato de zinc en fórmula", curativo:"Aplicación foliar correctiva", dosis:"Suelo: 3-5 kg/ha Zn. Foliar: 0.3-0.5%", epoca:"2-3 veces/año al inicio de brotación" },
+    tratamiento: { preventivo:"Sulfato de zinc incluido en la fórmula completa zonal — Zn deficiente en casi todos los análisis AGQ Perú de Azua", curativo:"Foliar correctivo de sulfato de Zn — complementa la fórmula zonal sin sustituirla", dosis:"Foliar: 0.3-0.5% sulfato de Zn. Suelo: 3-5 kg/ha Zn según fórmula zonal y criterio técnico", epoca:"2-3 veces al año, al inicio de brotación" },
     prevencion: ["Inclusión de Zn en fórmulas","Análisis foliar","Manejo de pH"],
     contextoLocal: "Zn deficiente en casi todos los análisis AGQ Perú de Azua. Incluir en formulaciones."
   },
@@ -1882,7 +1877,7 @@ const App = {
     // Visita
     document.getElementById('vProducer').addEventListener('input', e => Visit.data.producer = e.target.value);
     document.getElementById('vFarm').addEventListener('input', e => Visit.data.farm = e.target.value);
-    document.getElementById('vZone').addEventListener('change', e => Visit.data.zone = e.target.value);
+    document.getElementById('vZone').addEventListener('input', e => Visit.data.zone = e.target.value);
     document.getElementById('vAgronomo').addEventListener('change', e => Visit.data.agronomo = e.target.value);
 
     // Sombra
